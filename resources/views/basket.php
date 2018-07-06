@@ -1,5 +1,5 @@
 <? require_once "partials/_head.php";
-$content = require_once "../resources.php" ?>
+$content = require_once "../../resources.php" ?>
 
 <body>
 <div class="row">
@@ -38,4 +38,4 @@ $content = require_once "../resources.php" ?>
     </div>
 </div>
 
-<? require_once "partials/_footer.php"?>
+<? require_once "partials/_footer.php" ?>

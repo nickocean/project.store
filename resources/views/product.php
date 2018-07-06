@@ -1,4 +1,4 @@
-<? require_once "partials/_head.php"?>
+<? require_once "partials/_head.php" ?>
 
 <body>
 
@@ -25,11 +25,11 @@
                     </div>
 
                 </div>
-                <p><a href="#" class="btn btn-primary" role="button" style="margin-top: 20px">Buy</a> <a href="index.php" class="btn btn-default" role="button" style="margin-top: 20px">Go back</a></p>
+                <p><a href="#" class="btn btn-primary" role="button" style="margin-top: 20px">Buy</a> <a href="../../public/index.php" class="btn btn-default" role="button" style="margin-top: 20px">Go back</a></p>
             </div>
         </div>
     </div>
 </div>
 
 
-<? require_once "partials/_footer.php"?>
+<? require_once "partials/_footer.php" ?>

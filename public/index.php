@@ -1,6 +1,9 @@
+<?php
 
-<? require_once "partials/_head.php";
-$content = require_once "../resources.php" ?>
+    ini_set('display_errors', 1);
+    require_once "../resources/views/partials/_head.php";
+    require_once "../app/bootstrap.php";
+    $content = require_once "../resources.php" ?>
 
 <body>
 
@@ -8,11 +11,11 @@ $content = require_once "../resources.php" ?>
     <? foreach ($content as $product) : ?>
     <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-            <img src="<?= $product['image'] ?>" alt="...">
+            <img src="<?= $product['image'] ?>">
             <div class="caption">
                 <h3><?= $product['name'] ?></h3>
                 <p><?= $product['text'] ?></p>
-                <p><a href="basket.php" class="btn btn-primary" role="button">Buy</a> <a href="product.php" class="btn btn-default" role="button">Read More</a></p>
+                <p><a href="../resources/views/basket.php" class="btn btn-primary" role="button">Buy</a> <a href="../resources/views/product.php" class="btn btn-default" role="button">Read More</a></p>
             </div>
         </div>
     </div>
@@ -26,7 +29,7 @@ $content = require_once "../resources.php" ?>
                 <div class="caption">
                     <h3><?= $product['name'] ?></h3>
                     <p><?= $product['text'] ?></p>
-                    <p><a href="basket.php" class="btn btn-primary" role="button">Buy</a> <a href="product.php" class="btn btn-default" role="button">Read More</a></p>
+                    <p><a href="../resources/views/basket.php" class="btn btn-primary" role="button">Buy</a> <a href="../resources/views/product.php" class="btn btn-default" role="button">Read More</a></p>
                 </div>
             </div>
         </div>
@@ -34,4 +37,4 @@ $content = require_once "../resources.php" ?>
 </div>
 
 
-<? require_once "partials/_footer.php" ?>
+<? require_once "../resources/views/partials/_footer.php" ?>
