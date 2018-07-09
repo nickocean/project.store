@@ -3,17 +3,19 @@
 namespace App\Controllers;
 
 use Src\Controller\Controller;
-use Src\View\View;
+use Src\Route\Route;
 
 class PagesController extends Controller
 {
     public function index()
     {
+        Route::get();
         $this->view->getView('index.php');
     }
 
     public function basket()
     {
+        Route::get();
         $this->view->getView('basket.php');
     }
 

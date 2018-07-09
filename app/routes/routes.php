@@ -1,10 +1,7 @@
 <?php
 
-namespace App\Routes;
-
-use Src\Route\Route;
-
-Route::get('/', 'PagesController@index');
-Route::get('/basket', 'PagesController@basket');
-Route::get('/product', 'PagesController@product');
-
+    return [
+        '/' => 'PagesController@index',
+        'basket' => 'PagesController@basket',
+        'product' => 'PagesController@product'
+    ];
