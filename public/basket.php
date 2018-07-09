@@ -1,5 +1,7 @@
-<? require_once "partials/_head.php";
-$content = require_once "../../resources.php" ?>
+<?php
+
+    require_once "partials/_head.php";
+    $content = require_once "../../resources.php" ?>
 
 <body>
 <div class="row">

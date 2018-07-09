@@ -1,12 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: phpuser
- * Date: 06.07.18
- * Time: 16:31
- */
+
+namespace Src\View;
 
 class View
 {
-
+    public function getView($view) {
+        require_once "../../public/".$view;
+    }
 }

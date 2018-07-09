@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-sm-4 col-md-6 col-md-offset-3">
         <div class="thumbnail">
-            <img src="../images/A-Siamese-cat.jpg" alt="...">
+            <img src="images/A-Siamese-cat.jpg" alt="...">
             <div class="caption">
                 <h3>Product name</h3>
                 <div>
@@ -25,7 +25,7 @@
                     </div>
 
                 </div>
-                <p><a href="#" class="btn btn-primary" role="button" style="margin-top: 20px">Buy</a> <a href="../../public/index.php" class="btn btn-default" role="button" style="margin-top: 20px">Go back</a></p>
+                <p><a href="#" class="btn btn-primary" role="button" style="margin-top: 20px">Buy</a> <a href="index.php" class="btn btn-default" role="button" style="margin-top: 20px">Go back</a></p>
             </div>
         </div>
     </div>
