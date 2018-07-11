@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use Src\Controller\Controller;
-use Src\Route\Route;
+use Src\Router\Route;
 
 class PagesController extends Controller
 {
@@ -21,6 +21,7 @@ class PagesController extends Controller
 
     public function product()
     {
+        Route::get();
         $this->view->getView('product.php');
     }
 }

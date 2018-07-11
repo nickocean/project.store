@@ -1,7 +1,18 @@
 <?php
 
     return [
-        '/' => 'PagesController@index',
-        'basket' => 'PagesController@basket',
-        'product' => 'PagesController@product'
+        '/' => [
+            'controller' => 'pages',
+            'action' => 'index'
+        ],
+
+        'product' => [
+            'controller' => 'pages',
+            'action' => 'product'
+        ],
+
+        'basket' => [
+            'controller' => 'pages',
+            'action' => 'basket'
+        ]
     ];
