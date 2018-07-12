@@ -3,25 +3,21 @@
 namespace App\Controllers;
 
 use Src\Controller\Controller;
-use Src\Router\Route;
 
 class PagesController extends Controller
 {
-    public function index()
+    public function indexAction()
     {
-        Route::get();
-        $this->view->getView('index.php');
+        $this->view->render('Main page');
     }
 
-    public function basket()
+    public function basketAction()
     {
-        Route::get();
-        $this->view->getView('basket.php');
+        $this->view->render('Basket');
     }
 
-    public function product()
+    public function productAction()
     {
-        Route::get();
-        $this->view->getView('product.php');
+        $this->view->render('Product name');
     }
 }

@@ -6,24 +6,14 @@ use Src\View\View;
 
 class Controller
 {
-    public $model;
+    public $route;
     public $view;
 
-    function __construct()
+    function __construct($route)
     {
-        $this->view = new View();
+        $this->route = $route;
+        $this->view = new View($route);
     }
 
-    function index()
-    {
-    }
-
-    public function basket()
-    {
-    }
-
-    public function product()
-    {
-    }
 }
 

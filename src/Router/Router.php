@@ -9,7 +9,7 @@ class Router
 
     public function __construct()
     {
-        $arr = require_once "../../app/routes/routes.php";
+        $arr = require_once "../app/routes/routes.php";
 
         foreach ($arr as $key => $value) {
             $this->add($key, $value);
@@ -39,7 +39,7 @@ class Router
     public function run()
     {
         if ($this->match()) {
-            $path = "app\controllers\\" . ucfirst($this->params['controller']) . "Controller";
+            $path = "..\..\app\controllers\\" . ucfirst($this->params['controller']) . "Controller";
 
             if (class_exists($path)) {
                 $action = $this->params['action'] . "Action";
