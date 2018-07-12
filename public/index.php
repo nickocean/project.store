@@ -1,6 +1,6 @@
 <?php
 
-
+ini_set('display_errors', 1);
 require_once "../resources/views/partials/_head.php";
 require_once "../app/bootstrap.php";
 $content = require_once "../resources.php";

@@ -1,7 +1,7 @@
 <?php
 
     return [
-        '/' => [
+        '' => [
             'controller' => 'pages',
             'action' => 'index'
         ],

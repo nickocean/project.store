@@ -2,6 +2,7 @@
 
 namespace Src\Router;
 
+
 class Router
 {
     protected $routes = [];
@@ -18,7 +19,7 @@ class Router
 
     public function add($route, $params)
     {
-        $route = "#^" . $params . "$#";
+        $route = '#^' . $route . '$#';
         $this->routes[$route] = $params;
     }
 
@@ -39,13 +40,13 @@ class Router
     public function run()
     {
         if ($this->match()) {
-            $path = "..\..\app\controllers\\" . ucfirst($this->params['controller']) . "Controller";
+            $path = 'App\Controllers\\' . ucfirst($this->params['controller']) . 'Controller';
 
             if (class_exists($path)) {
-                $action = $this->params['action'] . "Action";
+                $action = $this->params['action'] . 'Action';
 
                 if (method_exists($path, $action)) {
-                    $controller = new $path;
+                    $controller = new $path($this->params);
                     $controller->$action();
                 } else {
                     echo "Cannot find action: " . $action;
