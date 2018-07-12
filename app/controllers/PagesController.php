@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\PagesController;
 
 use Src\Controller\Controller;
 
 class PagesController extends Controller
 {
-    public function indexAction()
+    public function index()
     {
-        $this->view->render('Main page');
+        $this->view->render();
     }
 
-    public function basketAction()
+    public function basket()
     {
-        $this->view->render('Basket');
+       $this->view->render();
     }
 
-    public function productAction()
+    public function product()
     {
-        $this->view->render('Product name');
+        $this->view->render();
     }
 }

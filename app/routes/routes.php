@@ -1,18 +1,19 @@
 <?php
 
-    return [
-        '' => [
-            'controller' => 'pages',
-            'action' => 'index'
-        ],
+return [
 
-        'product' => [
-            'controller' => 'pages',
-            'action' => 'product'
-        ],
+    '' => [
+        'controller' => 'PagesController',
+        'action' => 'index'
+    ],
 
-        'basket' => [
-            'controller' => 'pages',
-            'action' => 'basket'
-        ]
-    ];
+    'product' => [
+        'controller' => 'PagesController',
+        'action' => 'product'
+    ],
+
+    'basket' => [
+        'controller' => 'PagesController',
+        'action' => 'basket'
+    ]
+];

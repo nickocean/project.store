@@ -13,7 +13,7 @@ class View
         $this->path = $route['controller'] . '/' . $route['action'];
     }
 
-    public function render($title, $vars = [])
+    public function render()
     {
         if (file_exists('public/' . $this->path . '.php')) {
             require 'public/' . $this->path . '.php';

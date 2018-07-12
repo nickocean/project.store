@@ -5,12 +5,12 @@ namespace Src\Router;
 
 class Router
 {
-    protected $routes = [];
-    protected $params = [];
+    public $routes = [];
+    public $params = [];
 
     public function __construct()
     {
-        $arr = require_once "../app/routes/routes.php";
+        $arr = require_once "/home/NIX/phpuser/project.store/app/routes/routes.php";
 
         foreach ($arr as $key => $value) {
             $this->add($key, $value);
@@ -40,19 +40,21 @@ class Router
     public function run()
     {
         if ($this->match()) {
-            $path = 'App\Controllers\\' . ucfirst($this->params['controller']) . 'Controller';
+            $controllerFile = 'PagesController.php';
+            $controllerPath = '/home/NIX/phpuser/project.store/app/controllers/' . $controllerFile;
 
-            if (class_exists($path)) {
-                $action = $this->params['action'] . 'Action';
-
-                if (method_exists($path, $action)) {
-                    $controller = new $path($this->params);
-                    $controller->$action();
-                } else {
-                    echo "Cannot find action: " . $action;
-                }
+            if (file_exists($controllerPath)) {
+                require '/home/NIX/phpuser/project.store/app/controllers/'.$controllerFile;
             } else {
-                echo "Cannot find controller: " . $path;
+                echo "Cannot find controller";
+            }
+
+            $action = $this->params['action'];
+            if (method_exists($controllerPath, $action)) {
+                $controller = new $controllerPath($this->params);
+                $controller->$action();
+            } else {
+                echo "Cannot find action: " . $action;
             }
         } else {
             echo "Cannot find route";
