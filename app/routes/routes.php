@@ -2,18 +2,16 @@
 
 return [
 
-    '' => [
-        'controller' => 'PagesController',
-        'action' => 'index'
-    ],
-
     'product' => [
-        'controller' => 'PagesController',
+        'controller' => '\App\\controllers\\ProductController',
         'action' => 'product'
     ],
-
     'basket' => [
-        'controller' => 'PagesController',
+        'controller' => '\App\\controllers\\BasketController',
         'action' => 'basket'
-    ]
+    ],
+        '' => [
+    'controller' => '\App\\controllers\\MainController',
+    'action' => 'index'
+]
 ];

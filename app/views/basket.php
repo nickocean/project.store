@@ -1,7 +1,11 @@
 <?php
 
-    require_once "partials/_head.php";
-    $content = require_once "../../resources.php" ?>
+ini_set('display_errors', 1);
+require_once "_head.php";
+$content = require_once "../resources.php";
+
+?>
+
 
 <body>
 <div class="row">
@@ -40,4 +44,4 @@
     </div>
 </div>
 
-<? require_once "partials/_footer.php" ?>
+<? require_once "_footer.php" ?>

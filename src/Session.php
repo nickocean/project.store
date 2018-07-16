@@ -11,7 +11,7 @@ class Session
 
     public function getName()
     {
-        return $_SESSION;
+        var_dump($_SESSION);
     }
 
     public function getId()

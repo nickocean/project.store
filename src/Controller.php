@@ -1,8 +1,6 @@
 <?php
 
-namespace Src\Controller;
-
-use Src\View\View;
+namespace Src;
 
 class Controller
 {
@@ -14,6 +12,5 @@ class Controller
         $this->route = $route;
         $this->view = new View($route);
     }
-
 }
 

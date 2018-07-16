@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\View;
+namespace Src;
 
 class View
 {
@@ -13,15 +13,15 @@ class View
         $this->path = $route['controller'] . '/' . $route['action'];
     }
 
-    public function render()
+
+    public function render($view)
     {
-        if (file_exists('public/' . $this->path . '.php')) {
-            require 'public/' . $this->path . '.php';
+        if (file_exists("../app/views/$view.php")) {
+            require "../app/views/$view.php";
         } else {
-            echo 'Cannot find view' . $this->path;
+            echo 'Cannot find view ' . $this->path;
         }
     }
-
     public function redirect($url)
     {
         header('Location: ' . $url);
