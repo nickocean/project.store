@@ -30,13 +30,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="">CatStore</a>
+            <a class="navbar-brand" href="/">CatStore</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="">Basket</a></li>
+                <li><a href="/basket">Basket</a></li>
                 <li><a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Login</a></li>
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                     <div class="modal-dialog" role="document">

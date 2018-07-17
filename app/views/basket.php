@@ -2,7 +2,6 @@
 
 ini_set('display_errors', 1);
 require_once "_head.php";
-$content = require_once "../resources.php";
 
 ?>
 
@@ -24,12 +23,12 @@ $content = require_once "../resources.php";
             <th></th>
             </thead>
 
-            <? foreach ($content as $product) : ?>
+            <? foreach ($this->params['content'] as $products => $product) : ?>
             <tbody>
             <tr>
                 <th><?=$product['id']?></th>
                 <td><?=$product['name']?></td>
-                <td><?=$product['text']?></td>
+                <td><?=substr($product['description'], 0, 100) . '...'?></td>
                 <td><?=$product['price']?></td>
                 <td>
                     <a href="#" class="btn btn-danger btn-sm">Delete</a>

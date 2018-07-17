@@ -8,7 +8,11 @@ class BasketController extends Controller
 {
     public function basket()
     {
-        $this->view->render('basket');
+        $result = $this->model->getData();
+        $vars = [
+            'content' => $result
+        ];
+        $this->view->render('basket', $vars);
     }
 
 }
