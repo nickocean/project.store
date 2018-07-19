@@ -1,4 +1,4 @@
-<? require_once "_head.php"; ?>
+<? require_once "partials/_head.php"; ?>
 
 <body>
 
@@ -36,4 +36,4 @@
 </div>
 
 
-<? require_once "_footer.php" ?>
+<? require_once "partials/_footer.php" ?>

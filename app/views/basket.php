@@ -1,7 +1,7 @@
 <?php
 
 ini_set('display_errors', 1);
-require_once "_head.php";
+require_once "partials/_head.php";
 
 ?>
 
@@ -22,20 +22,17 @@ require_once "_head.php";
             <th>Price</th>
             <th></th>
             </thead>
-
-            <? foreach ($this->params['content'] as $products => $product) : ?>
             <tbody>
             <tr>
-                <th><?=$product['id']?></th>
-                <td><?=$product['name']?></td>
-                <td><?=substr($product['description'], 0, 100) . '...'?></td>
-                <td><?=$product['price']?></td>
+                <th><?=$this->params['content'][0]['id']?></th>
+                <td><?=$this->params['content'][0]['name']?></td>
+                <td><?=$this->params['content'][0]['description']?></td>
+                <td><?=$this->params['content'][0]['price']?></td>
                 <td>
                     <a href="#" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>
             </tbody>
-            <? endforeach; ?>
         </table>
         <div class="col-md-8">
             <a href="#" class="btn btn-lg btn-primary">Buy</a>
@@ -43,4 +40,4 @@ require_once "_head.php";
     </div>
 </div>
 
-<? require_once "_footer.php" ?>
+<? require_once "partials/_footer.php" ?>

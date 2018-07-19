@@ -11,7 +11,8 @@ class Product extends Model
 
     public function getProduct($id)
     {
-        $result = $this->db->row("SELECT * FROM products WHERE id = $id;");
+        $result = $this->db->row("SELECT * FROM products WHERE id = $id");
+
         return $result;
     }
 }

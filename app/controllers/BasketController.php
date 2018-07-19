@@ -8,9 +8,9 @@ class BasketController extends Controller
 {
     public function basket()
     {
-        $result = $this->model->getData();
+        $data = $this->model->request($_GET['id']);
         $vars = [
-            'content' => $result
+            'content' => $data
         ];
         $this->view->render('basket', $vars);
     }

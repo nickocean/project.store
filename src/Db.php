@@ -20,7 +20,8 @@ class Db
 
         if (!empty($params)) {
             foreach ($params as $key => $value) {
-                $this->db->bindValue(':'.$key, $value);
+                //$this->db->bindValue(':' . $key, $value);
+                $stmt->bindValue(':' . $key, $value);
             }
         }
         $stmt->execute();
