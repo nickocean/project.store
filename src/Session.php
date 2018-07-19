@@ -37,7 +37,6 @@ class Session
     public static function destroy()
     {
         if (self::$isStarted == true) {
-            session_unset();
             session_destroy();
         }
     }

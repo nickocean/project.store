@@ -8,11 +8,23 @@ class BasketController extends Controller
 {
     public function basket()
     {
-        $data = $this->model->request($_GET['id']);
-        $vars = [
-            'content' => $data
-        ];
-        $this->view->render('basket', $vars);
+        $this->model->add($_GET['id']);
+
+        $this->view->render('basket');
+    }
+
+    public function delete()
+    {
+        $this->model->del($_GET['id']);
+
+        $this->view->render('basket');
     }
 
 }
+
+
+
+
+
+
+

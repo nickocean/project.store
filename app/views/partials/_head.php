@@ -1,3 +1,4 @@
+<?=pre($_SESSION)?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,8 +38,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/basket">Basket</a></li>
-                <? if ($_SESSION['user'] == true) : ?>
-                    <li><a href=""><?=$_SESSION['user'][0]['name']?></a></li>
+                <? if (isset($_SESSION['user'])) : ?>
+                    <li><a href=""><?= $_SESSION['user'][0]['name'] ?></a></li>
                     <li><a href="logout">Logout</a></li>
                 <? else : ?>
                     <li><a href="form">Login</a></li>

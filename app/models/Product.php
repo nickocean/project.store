@@ -4,6 +4,7 @@ namespace App\models;
 
 
 use Src\Model;
+use Src\Session\Session;
 
 class Product extends Model
 {

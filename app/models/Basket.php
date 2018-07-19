@@ -9,19 +9,41 @@ class Basket extends Model
 {
     public $id;
 
-    public function request($id)
+    public function add($id)
     {
-        $products = $this->db->row("SELECT id, name, description, price FROM products WHERE id = $id");
+        $products = $this->db->row("SELECT id, name, description, price FROM products WHERE id = $id ");
 
-        return $products;
+        if ($products) {
+            if (isset($_SESSION['products'])) {
+                foreach ($products as $product) {
+                    $_SESSION['products'][] = $product;
+                }
+            } else {
+                Session::set('products', $products);
+            }
+            return $products;
+        }
     }
 
-    /*public function addItems($data)
+    public function del($id)
     {
-        Session::start();
-        Session::set('products', $data);
-
-        header('Location: ../');
-    }*/
-
+        
+    }
 }
+
+//SELECT * FROM products
+//INNER JOIN products_orders ON products.id = products_orders.product_id
+//LEFT JOIN orders ON products_orders.order_id = orders.id;
+
+
+/*if ($products) {
+    if (isset($_SESSION['products'])) {
+        foreach ($products as $product) {
+            $_SESSION['products'][] = $product;
+        }
+    } else {
+        Session::set('products', $products);
+    }
+    return $products;
+}*/
+

@@ -29,7 +29,7 @@
                     </div>
 
                 </div>
-                <p><a href="/basket" class="btn btn-primary" role="button" style="margin-top: 20px">Buy</a> <a href="/" class="btn btn-default" role="button" style="margin-top: 20px">Go back</a></p>
+                <p><a href="/basket?id=<?=$this->params['content'][0]['id']?>" class="btn btn-primary" role="button" style="margin-top: 20px">Add to Basket</a> <a href="/" class="btn btn-default" role="button" style="margin-top: 20px">Go back</a></p>
             </div>
         </div>
     </div>

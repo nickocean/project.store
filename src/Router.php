@@ -2,8 +2,6 @@
 
 namespace Src;
 
-
-
 use Src\Session\Session;
 
 class Router

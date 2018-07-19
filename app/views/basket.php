@@ -20,18 +20,23 @@ require_once "partials/_head.php";
             <th>Product Name</th>
             <th>Description</th>
             <th>Price</th>
+            <th>Count</th>
             <th></th>
             </thead>
             <tbody>
+            <? if (isset($_SESSION['products'])) :
+            foreach ($_SESSION['products'] as $products => $product) : ?>
             <tr>
-                <th><?=$this->params['content'][0]['id']?></th>
-                <td><?=$this->params['content'][0]['name']?></td>
-                <td><?=$this->params['content'][0]['description']?></td>
-                <td><?=$this->params['content'][0]['price']?></td>
+                <th><?=$product['id']?></th>
+                <td><?=$product['name']?></td>
+                <td><?=substr($product['description'], 0, 150) . '...'?></td>
+                <td><?=$product['price']?></td>
+                <td>1</td>
                 <td>
-                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="/delete?id=<?=$product['id']?>" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>
+            <? endforeach; endif; ?>
             </tbody>
         </table>
         <div class="col-md-8">

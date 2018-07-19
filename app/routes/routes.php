@@ -32,9 +32,9 @@ return [
         'controller' => '\App\\controllers\\LoginController',
         'action' => 'logout'
     ],
-    'basket/add' => [
+    'delete' => [
         'model' => '\App\\models\\Basket',
         'controller' => '\App\\controllers\\BasketController',
-        'action' => 'add'
+        'action' => 'delete'
     ]
 ];
