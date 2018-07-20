@@ -2,9 +2,7 @@
 
 namespace App\models;
 
-
 use Src\Model;
-use Src\Session\Session;
 
 class Product extends Model
 {
@@ -15,5 +13,12 @@ class Product extends Model
         $result = $this->db->row("SELECT * FROM products WHERE id = $id");
 
         return $result;
+    }
+
+    public function getComments($id)
+    {
+        $comments = $this->db->row("SELECT * FROM comments WHERE product_id = $id");
+
+        return $comments;
     }
 }

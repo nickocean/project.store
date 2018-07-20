@@ -7,12 +7,13 @@ use Src\Controller;
 
 class ProductController extends Controller
 {
-
     public function product()
     {
-        $result = $this->model->getProduct($_GET['id']);
+        $content = $this->model->getProduct($_GET['id']);
+        $comments = $this->model->getComments($_GET['id']);
         $vars = [
-            'content' => $result
+            'content' => $content,
+            'comments' => $comments
         ];
         $this->view->render('product', $vars);
     }

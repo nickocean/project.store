@@ -22,9 +22,8 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="home"
                              style="margin-top: 20px"><?= $this->params['content'][0]['description'] ?></div>
-                        <div role="tabpanel" class="tab-pane" id="messages" style="margin-top: 20px">Cras justo odio,
-                            dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget
-                            metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                        <div role="tabpanel" class="tab-pane" id="messages" style="margin-top: 20px">
+                            <?= $this->params['comments'][0]['text'] ?>
                         </div>
                     </div>
 

@@ -31,7 +31,7 @@ require_once "partials/_head.php";
                 <td><?=$product['name']?></td>
                 <td><?=substr($product['description'], 0, 150) . '...'?></td>
                 <td><?=$product['price']?></td>
-                <td>1</td>
+                <td><?=$product['count']?></td>
                 <td>
                     <a href="/delete?id=<?=$product['id']?>" class="btn btn-danger btn-sm">Delete</a>
                 </td>
@@ -40,7 +40,7 @@ require_once "partials/_head.php";
             </tbody>
         </table>
         <div class="col-md-8">
-            <a href="#" class="btn btn-lg btn-primary">Buy</a>
+            <a href="/buy" class="btn btn-lg btn-primary">Buy</a>
         </div>
     </div>
 </div>

@@ -8,9 +8,11 @@ class BasketController extends Controller
 {
     public function basket()
     {
-        $this->model->add($_GET['id']);
-
+        if (isset($_GET['id'])) {
+            $this->model->add($_GET['id']);
+        }
         $this->view->render('basket');
+
     }
 
     public function delete()
@@ -18,6 +20,15 @@ class BasketController extends Controller
         $this->model->del($_GET['id']);
 
         $this->view->render('basket');
+    }
+
+    public function buy()
+    {
+
+        $this->model->addOrder();
+
+        $this->view->render('basket');
+
     }
 
 }
