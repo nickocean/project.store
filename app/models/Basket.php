@@ -48,7 +48,11 @@ class Basket extends Model
     {
         foreach ($_SESSION['products'] as $products => $product) {
             if ($id == $product['id']) {
-                unset($_SESSION['products'][$products]);
+                if ($product['count'] > 1) {
+                    $_SESSION['products'][$products]['count']--;
+                } else {
+                    unset($_SESSION['products'][$products]);
+                }
             }
         }
     }

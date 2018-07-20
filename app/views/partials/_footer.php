@@ -4,5 +4,3 @@
 
 </body>
 </html>
-
-<?=pre($_SESSION)?>

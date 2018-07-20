@@ -21,4 +21,11 @@ class Product extends Model
 
         return $comments;
     }
+
+    public function getUsers($id)
+    {
+        $comments = $this->db->row("SELECT * FROM comments WHERE product_id = $id");
+
+        return $comments;
+    }
 }
