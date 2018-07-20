@@ -1,4 +1,4 @@
-<? require_once "_head.php"; ?>
+<? require_once "partials/_head.php"; ?>
 
 <body>
 
@@ -22,18 +22,19 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="home"
                              style="margin-top: 20px"><?= $this->params['content'][0]['description'] ?></div>
-                        <div role="tabpanel" class="tab-pane" id="messages" style="margin-top: 20px">Cras justo odio,
-                            dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget
-                            metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                        <div role="tabpanel" class="tab-pane" id="messages" style="margin-top: 20px">
+                            <div>Name</div>
+                            <hr>
+                            <div><?= $this->params['comments'][0]['text'] ?></div>
                         </div>
                     </div>
 
                 </div>
-                <p><a href="/basket" class="btn btn-primary" role="button" style="margin-top: 20px">Buy</a> <a href="/" class="btn btn-default" role="button" style="margin-top: 20px">Go back</a></p>
+                <p><a href="/basket?id=<?= $this->params['content'][0]['id'] ?>" class="btn btn-primary" role="button" style="margin-top: 20px">Add to Basket</a> <a href="/" class="btn btn-default" role="button" style="margin-top: 20px">Go back</a></p>
             </div>
         </div>
     </div>
 </div>
 
 
-<? require_once "_footer.php" ?>
+<? require_once "partials/_footer.php" ?>

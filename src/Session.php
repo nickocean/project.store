@@ -4,57 +4,40 @@ namespace Src\Session;
 
 class Session
 {
-    public function setName($name)
-    {
-        session_name($name);
-    }
+    private static $isStarted = false;
 
-    public function getName()
+    public static function start()
     {
-        var_dump($_SESSION);
-    }
-
-    public function getId()
-    {
-        return session_id();
-    }
-
-    public function setId($id)
-    {
-        session_id($id);
-    }
-
-    public function cookieExists()
-    {
-        if (!empty($_COOKIE)) {
-            return true;
-        } else {
-            return false;
+        if (self::$isStarted == false) {
+            session_start();
+            self::$isStarted = true;
         }
     }
 
-    public function sessionExists()
+    public static function set($key, $value)
     {
-        if (isset($_SESSION['id'])) {
-            return true;
-        } else {
-            return false;
+        $_SESSION[$key] = $value;
+    }
+
+    public static function get($key)
+    {
+        if (isset($_SESSION[$key])) {
+            return $_SESSION[$key];
+        }
+        return false;
+    }
+
+    public static function display()
+    {
+        echo '<pre>';
+        print_r($_SESSION);
+        echo '</pre>';
+    }
+
+    public static function destroy()
+    {
+        if (self::$isStarted == true) {
+            session_destroy();
         }
     }
-
-    public function start()
-    {
-        return session_start();
-    }
-
-    public function destroy()
-    {
-        session_destroy();
-    }
-
-    public function setSavePath($path)
-    {
-        session_save_path($path);
-    }
-
 }

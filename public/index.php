@@ -10,11 +10,6 @@ define('SRC', dirname(__DIR__) . '/src');
 
 require_once APP . '/bootstrap.php';
 
-$session = new \Src\Session\Session();
-$session->start();
-
 $router = new \Src\Router();
 $router->run();
-
-
 

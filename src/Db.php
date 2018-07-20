@@ -11,7 +11,7 @@ class Db
     public function __construct()
     {
         $config = require_once APP . '/config/db.php';
-        $this->db = new PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['name'] . '', $config['user'], $config['password']);
+        $this->db = new PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['name'] . ';charset=utf8', $config['user'], $config['password']);
     }
 
     public function query($sql, $params = [])
@@ -20,7 +20,7 @@ class Db
 
         if (!empty($params)) {
             foreach ($params as $key => $value) {
-                $this->db->bindValue(':'.$key, $value);
+                $stmt->bindValue(':' . $key, $value);
             }
         }
         $stmt->execute();

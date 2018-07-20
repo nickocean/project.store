@@ -2,11 +2,6 @@
 
 return [
 
-    'basket' => [
-        'model' => '\App\\models\\Main',
-        'controller' => '\App\\controllers\\BasketController',
-        'action' => 'basket'
-    ],
     '' => [
         'model' => '\App\\models\\Main',
         'controller' => '\App\\controllers\\MainController',
@@ -16,5 +11,35 @@ return [
         'model' => '\App\\models\\Product',
         'controller' => '\App\\controllers\\ProductController',
         'action' => 'product'
+    ],
+    'form' => [
+        'model' => '\App\\models\\Login',
+        'controller' => '\App\\controllers\\LoginController',
+        'action' => 'form'
+    ],
+    'login' => [
+        'model' => '\App\\models\\Login',
+        'controller' => '\App\\controllers\\LoginController',
+        'action' => 'login'
+    ],
+    'logout' => [
+        'model' => '\App\\models\\Login',
+        'controller' => '\App\\controllers\\LoginController',
+        'action' => 'logout'
+    ],
+    'basket' => [
+        'model' => '\App\\models\\Basket',
+        'controller' => '\App\\controllers\\BasketController',
+        'action' => 'basket'
+    ],
+    'delete' => [
+        'model' => '\App\\models\\Basket',
+        'controller' => '\App\\controllers\\BasketController',
+        'action' => 'delete'
+    ],
+    'buy' => [
+        'model' => '\App\\models\\Basket',
+        'controller' => '\App\\controllers\\BasketController',
+        'action' => 'buy'
     ]
 ];

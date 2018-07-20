@@ -4,6 +4,7 @@
 namespace App\controllers;
 
 use Src\Controller;
+use Src\Session\Session;
 
 class MainController extends Controller
 {

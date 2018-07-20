@@ -1,7 +1,7 @@
 <?php
 
 ini_set('display_errors', 1);
-require_once "_head.php";
+require_once "partials/_head.php";
 
 ?>
 
@@ -20,27 +20,29 @@ require_once "_head.php";
             <th>Product Name</th>
             <th>Description</th>
             <th>Price</th>
+            <th>Count</th>
             <th></th>
             </thead>
-
-            <? foreach ($this->params['content'] as $products => $product) : ?>
             <tbody>
+            <? if (isset($_SESSION['products'])) :
+            foreach ($_SESSION['products'] as $products => $product) : ?>
             <tr>
                 <th><?=$product['id']?></th>
                 <td><?=$product['name']?></td>
-                <td><?=substr($product['description'], 0, 100) . '...'?></td>
+                <td><?=substr($product['description'], 0, 150) . '...'?></td>
                 <td><?=$product['price']?></td>
+                <td><?=$product['count']?></td>
                 <td>
-                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="/delete?id=<?=$product['id']?>" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>
+            <? endforeach; endif; ?>
             </tbody>
-            <? endforeach; ?>
         </table>
         <div class="col-md-8">
-            <a href="#" class="btn btn-lg btn-primary">Buy</a>
+            <a href="/buy" class="btn btn-lg btn-primary">Buy</a>
         </div>
     </div>
 </div>
 
-<? require_once "_footer.php" ?>
+<? require_once "partials/_footer.php" ?>

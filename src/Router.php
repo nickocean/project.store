@@ -2,7 +2,7 @@
 
 namespace Src;
 
-
+use Src\Session\Session;
 
 class Router
 {
@@ -10,6 +10,7 @@ class Router
     public $params = [];
     public function __construct()
     {
+        Session::start();
         $arr = require_once APP . '/routes/routes.php';
         foreach ($arr as $key => $value) {
             $this->add($key, $value);

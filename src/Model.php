@@ -2,11 +2,9 @@
 
 namespace Src;
 
-use Src\Db;
-
 class Model
 {
-    protected $db;
+    public $db;
 
     public function __construct()
     {
