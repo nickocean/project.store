@@ -3,7 +3,6 @@
 namespace App\controllers;
 
 use Src\Controller;
-use Src\Session\Session;
 
 class LoginController extends Controller
 {

@@ -46,5 +46,15 @@ return [
         'model' => '\App\\models\\Basket',
         'controller' => '\App\\controllers\\BasketController',
         'action' => 'buy'
-    ]
+    ],
+	'register' => [
+		'model' => '\App\\models\\Registration',
+		'controller' => '\App\\controllers\\RegistrationController',
+		'action' => 'form'
+	],
+	'registration' => [
+		'model' => '\App\\models\\Registration',
+		'controller' => '\App\\controllers\\RegistrationController',
+		'action' => 'register'
+	]
 ];

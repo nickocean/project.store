@@ -42,6 +42,7 @@
                     <li><a href="logout">Logout</a></li>
                 <? else : ?>
                     <li><a href="form">Login</a></li>
+                    <li><a href="register">Registration</a></li>
                 <? endif; ?>
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                     <div class="modal-dialog" role="document">
