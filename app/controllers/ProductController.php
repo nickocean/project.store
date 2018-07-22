@@ -17,4 +17,12 @@ class ProductController extends Controller
         ];
         $this->view->render('product', $vars);
     }
+
+
+    public function comment()
+    {
+    	$this->model->addComment($_GET['id']);
+
+    	$this->product();
+    }
 }

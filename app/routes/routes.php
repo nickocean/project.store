@@ -12,6 +12,13 @@ return [
         'controller' => '\App\\controllers\\ProductController',
         'action' => 'product'
     ],
+
+	'comment' => [
+		'model' => '\App\\models\\Product',
+		'controller' => '\App\\controllers\\ProductController',
+		'action' => 'comment'
+	],
+
     'form' => [
         'model' => '\App\\models\\Login',
         'controller' => '\App\\controllers\\LoginController',
