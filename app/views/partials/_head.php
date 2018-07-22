@@ -30,14 +30,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/public/index.php">CatStore</a>
+            <a class="navbar-brand" href="/">CatStore</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/resources/views/basket.php">Basket</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Login</a></li>
+                <li><a href="/basket">Basket</a></li>
+                <? if (isset($_SESSION['user'])) : ?>
+                    <li><a href=""><?= $_SESSION['user'][0]['name'] ?></a></li>
+                    <li><a href="logout">Logout</a></li>
+                <? else : ?>
+                    <li><a href="form">Login</a></li>
+                <? endif; ?>
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -46,20 +51,24 @@
                                 <h4 class="modal-title" id="exampleModalLabel">Login</h4>
                             </div>
                             <div class="modal-body">
-                                <form>
+                                <form action="login" method="post">
+                                    <div class="form-group">
+                                        <label for="name" class="control-label">Name:</label>
+                                        <input type="text" class="form-control" id="name" name="name" required >
+                                    </div>
                                     <div class="form-group">
                                         <label for="email" class="control-label">Email:</label>
-                                        <input type="text" class="form-control" id="email" required >
+                                        <input type="email" class="form-control" id="email" name="email" required >
                                     </div>
                                     <div class="form-group">
                                         <label for="password" class="control-label">Password:</label>
-                                        <input class="form-control" type="password" id="password" required >
+                                        <input class="form-control" type="password" id="password" name="password" required >
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Login</button>
                                     </div>
                                 </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Login</button>
                             </div>
                         </div>
                     </div>
