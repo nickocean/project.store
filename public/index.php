@@ -21,5 +21,4 @@ $router->run();
 // Logger
 // Flashes
 // Checks
-// Adding comments
 // Active record
