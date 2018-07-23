@@ -3,6 +3,7 @@
 namespace App\models;
 
 use Src\Model;
+use Src\Flashes;
 
 class Basket extends Model
 {
@@ -41,6 +42,8 @@ class Basket extends Model
         }
 
         unset($_SESSION['products']);
+
+        Flashes::flash('success', 'Your order was successfully accepted!');
 
     }
 

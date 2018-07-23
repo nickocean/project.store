@@ -14,7 +14,7 @@ require_once "partials/_head.php";
                 <div class="caption">
                     <h3><?= $product['name'] ?></h3>
                     <p><?= substr($product['description'], 0, 400) . '...' ?></p>
-                    <p><a href="/basket?id=<?=$product['id']?>" class="btn btn-primary" role="button">Add to Basket</a> <a href="/product?id=<?= $product['id'] ?>" class="btn btn-default" role="button">Read More</a></p>
+                    <p><a href="basket?id=<?=$product['id']?>" class="btn btn-primary" role="button">Add to Basket</a> <a href="product?id=<?= $product['id'] ?>" class="btn btn-default" role="button">Read More</a></p>
                 </div>
             </div>
         </div>

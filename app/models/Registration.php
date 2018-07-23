@@ -14,8 +14,12 @@ class Registration extends Model
 		if ($_POST['password'] == $_POST['confirm'] && preg_match($username, trim($_POST['name'])) && preg_match($email, trim($_POST['email']))) {
 
 			$this->db->query("INSERT INTO users (name, email, password) VALUES ('{$_POST['name']}', '{$_POST['email']}', '{$_POST['password']}')");
+
+			header('Location: ../');
+
+		} else {
+			header('Location: register');
 		}
 
-		header('Location: ../');
 	}
 }

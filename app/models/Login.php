@@ -2,6 +2,7 @@
 
 namespace App\models;
 
+use Src\Flashes;
 use Src\Model;
 use Src\Session\Session;
 
@@ -14,7 +15,7 @@ class Login extends Model
         if ($stmt) {
             $this->auth($stmt);
         } else {
-            echo 'no';
+        	header('Location: form');
         }
     }
 

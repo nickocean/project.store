@@ -15,10 +15,8 @@ $router->run();
 
 
 
-// Registration
 // Validation
 // Exceptions
 // Logger
-// Flashes
 // Checks
 // Active record
