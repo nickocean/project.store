@@ -33,15 +33,21 @@ require_once "partials/_head.php";
                 <td><?=$product['price']?></td>
                 <td><?=$product['count']?></td>
                 <td>
-                    <a href="/delete?id=<?=$product['id']?>" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="delete?id=<?=$product['id']?>" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>
             <? endforeach; endif; ?>
             </tbody>
         </table>
+            <? if (isset($_SESSION['user'])) : ?>
         <div class="col-md-8">
-            <a href="/buy" class="btn btn-lg btn-primary">Buy</a>
+            <a href="buy" class="btn btn-lg btn-primary">Buy</a>
         </div>
+            <? else : ?>
+        <div class="col-md-8">
+            <a href="form" class="btn btn-lg btn-primary">Login</a>
+        </div>
+            <? endif; ?>
     </div>
 </div>
 
