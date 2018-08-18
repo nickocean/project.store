@@ -8,6 +8,7 @@ class Router
 {
     public $routes = [];
     public $params = [];
+
     public function __construct()
     {
         Session::start();

@@ -14,7 +14,7 @@ class Login extends Model
     	$hash = $arrHash[0]['password'];
     	$pass = $_POST['password'];
 
-    	if (password_verify($pass, $hash)) {
+    	if (password_verify($pass, $hash) && isset($_POST['csrf_token']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
 		    $stmt = $this->db->row("SELECT id, name, email FROM users WHERE name = '{$_POST['name']}' AND email = '{$_POST['email']}'");
 	    }
 
@@ -27,7 +27,6 @@ class Login extends Model
 
     public function auth($data)
     {
-        Session::start();
         Session::set('user', $data);
 
         header('Location: ../');

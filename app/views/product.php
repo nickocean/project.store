@@ -41,6 +41,7 @@
                                         <form action="comment?id=<?= $this->params['content'][0]['id'] ?>" method="post" class="form-group-lg">
                                             <label for="text"></label>
                                             <textarea class="form-control" rows="5" id="text" name="text" type="text" placeholder="Type you comment here..."></textarea>
+                                            <input type="hidden" name="csrf_token" value="<?=$_SESSION['csrf_token']?>">
                                             <input type="submit" value="Add Comment" class="btn btn-primary btn-lg btn-block" style="margin-top: 10px">
                                         </form>
                                     </div>

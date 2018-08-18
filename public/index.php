@@ -13,6 +13,8 @@ require_once APP . '/bootstrap.php';
 $router = new \Src\Router();
 $router->run();
 
+pre($_SESSION);
+
 
 
 // Validation

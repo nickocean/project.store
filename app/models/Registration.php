@@ -12,15 +12,20 @@ class Registration extends Model
 		$username = '/^[a-z\d_]{5,20}$/i';
 		$pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-		if ($_POST['password'] == $_POST['confirm'] && preg_match($username, trim($_POST['name'])) && preg_match($email, trim($_POST['email']))) {
+		if (isset($_POST['csrf_token']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
 
-			$this->db->query("INSERT INTO users (name, email, password) VALUES ('{$_POST['name']}', '{$_POST['email']}', '{$pass}')");
+			if ($_POST['password'] == $_POST['confirm'] && preg_match($username, trim($_POST['name'])) && preg_match($email, trim($_POST['email']))) {
 
-			header('Location: ../');
+				$this->db->query("INSERT INTO users (name, email, password) VALUES ('{$_POST['name']}', '{$_POST['email']}', '{$pass}')");
 
-		} else {
-			header('Location: register');
+				header('Location: ../');
+
+			} else {
+
+				header('Location: register');
+			}
 		}
+
 
 	}
 }
