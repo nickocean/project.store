@@ -28,7 +28,8 @@ class Product extends Model
 
     public function addComment($id)
     {
-    	$this->db->query("INSERT INTO comments (text, user_id, product_id) VALUES ('{$_POST['text']}', {$_SESSION['user'][0]['id']}, {$id})");
+    	$commentText = strip_tags($_POST['text']);
+    	$this->db->query("INSERT INTO comments (text, user_id, product_id) VALUES ('{$commentText}', {$_SESSION['user'][0]['id']}, {$id})");
 
     	Flashes::flash('success', 'Your comment was successfully added!');
     }
