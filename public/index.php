@@ -13,12 +13,4 @@ require_once APP . '/bootstrap.php';
 $router = new \Src\Router();
 $router->run();
 
-
-
-// Registration
-// Validation
-// Exceptions
-// Logger
-// Flashes
-// Checks
-// Active record
+//pre($_SESSION);

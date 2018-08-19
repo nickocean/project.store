@@ -3,7 +3,6 @@
 namespace App\controllers;
 
 use Src\Controller;
-use Src\Session\Session;
 
 class LoginController extends Controller
 {
@@ -16,6 +15,10 @@ class LoginController extends Controller
     public function login()
     {
         $this->model->run();
+
+        if (!isset($_SESSION['user'])) {
+        	$this->view->render('login');
+        }
     }
 
     public function logout()
