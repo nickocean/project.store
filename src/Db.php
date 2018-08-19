@@ -11,8 +11,9 @@ class Db
     public function __construct()
     {
         $config = require_once APP . '/config/db.php';
-        if (!$this->db) {
+        if (!isset($this->db)) {
 	        $this->db = new PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['name'] . ';charset=utf8', $config['user'], $config['password']);
+	        $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } else {
         	return null;
         }

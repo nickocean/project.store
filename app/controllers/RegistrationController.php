@@ -14,5 +14,9 @@ class RegistrationController extends Controller
 	public function register()
 	{
 		$this->model->run();
+
+		if (!isset($_SESSION['user'])) {
+			$this->view->render('register');
+		}
 	}
 }
