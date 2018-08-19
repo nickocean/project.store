@@ -11,7 +11,11 @@ class Db
     public function __construct()
     {
         $config = require_once APP . '/config/db.php';
-        $this->db = new PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['name'] . ';charset=utf8', $config['user'], $config['password']);
+        if (!$this->db) {
+	        $this->db = new PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['name'] . ';charset=utf8', $config['user'], $config['password']);
+        } else {
+        	return null;
+        }
     }
 
     public function query($sql, $params = [])
