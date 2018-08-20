@@ -5,6 +5,7 @@ namespace App\models;
 use Src\Model;
 use Src\Flashes;
 use Src\Session\Session;
+use Src\Log;
 
 class Registration extends Model
 {
@@ -30,7 +31,7 @@ class Registration extends Model
 	public function auth($data)
 	{
 		Session::set('user', $data);
-
+		Log::info('New user: ', $data);
 		header('Location: ../');
 	}
 }

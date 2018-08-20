@@ -2,6 +2,7 @@
 
 namespace App\models;
 
+use Src\Log;
 use Src\Model;
 use Src\Flashes;
 
@@ -44,6 +45,8 @@ class Basket extends Model
 		    foreach ($_SESSION['products'] as $products => $product) {
 			    $this->db->query("INSERT INTO products_orders (product_count, product_id, order_id) VALUES ({$product['count']},{$product['id']}, {$orderId[0]['id']})");
 		    }
+
+		    Log::info('New order: ', $_SESSION['user']);
 
 		    unset($_SESSION['products']);
 		    unset($_SESSION['total_price']);
