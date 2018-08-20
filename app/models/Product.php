@@ -2,6 +2,7 @@
 
 namespace App\models;
 
+use Src\Log;
 use Src\Model;
 use Src\Flashes;
 
@@ -35,6 +36,7 @@ class Product extends Model
 		    $this->db->query("INSERT INTO comments (text, user_id, product_id) VALUES ('{$commentText}', {$_SESSION['user'][0]['id']}, {$id})");
 
 		    Flashes::flash('success', 'Your comment was successfully added!');
+		    Log::info("New comment: {$_POST['text']}", $_SESSION['user']);
 	    }
 
     }

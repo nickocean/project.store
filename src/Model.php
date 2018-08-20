@@ -8,6 +8,10 @@ class Model
 
     public function __construct()
     {
-        $this->db = new Db;
+    	if (!isset($this->db)) {
+		    $this->db = new Db;
+	    } else {
+    		return null;
+	    }
     }
 }

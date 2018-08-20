@@ -3,6 +3,7 @@
 namespace App\models;
 
 use Src\Flashes;
+use Src\Log;
 use Src\Model;
 use Src\Session\Session;
 
@@ -26,7 +27,7 @@ class Login extends Model
     public function auth($data)
     {
         Session::set('user', $data);
-
+        Log::info('Logged in user: ', $data);
         header('Location: ../');
     }
 
