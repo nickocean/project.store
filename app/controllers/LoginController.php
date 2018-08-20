@@ -15,6 +15,10 @@ class LoginController extends Controller
     public function login()
     {
         $this->model->run();
+
+        if (!isset($_SESSION['user'])) {
+        	$this->view->render('login');
+        }
     }
 
     public function logout()

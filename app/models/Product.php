@@ -2,6 +2,7 @@
 
 namespace App\models;
 
+use Src\Log;
 use Src\Model;
 use Src\Flashes;
 
@@ -28,8 +29,15 @@ class Product extends Model
 
     public function addComment($id)
     {
-    	$this->db->query("INSERT INTO comments (text, user_id, product_id) VALUES ('{$_POST['text']}', {$_SESSION['user'][0]['id']}, {$id})");
+    	$commentText = strip_tags($_POST['text']);
 
-    	Flashes::flash('success', 'Your comment was successfully added!');
+    	if (isset($_POST['csrf_token']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
+
+		    $this->db->query("INSERT INTO comments (text, user_id, product_id) VALUES ('{$commentText}', {$_SESSION['user'][0]['id']}, {$id})");
+
+		    Flashes::flash('success', 'Your comment was successfully added!');
+		    Log::info("New comment: {$_POST['text']}", $_SESSION['user']);
+	    }
+
     }
 }

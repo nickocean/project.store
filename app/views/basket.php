@@ -8,7 +8,7 @@ require_once "partials/_head.php";
 
 <body>
 <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-10 col-md-offset-5">
         <h1>Basket</h1>
     </div>
 </div>
@@ -30,7 +30,7 @@ require_once "partials/_head.php";
                 <th><?=$product['id']?></th>
                 <td><?=$product['name']?></td>
                 <td><?=substr($product['description'], 0, 150) . '...'?></td>
-                <td><?=$product['price']?></td>
+                <td><?=$product['price']?>$</td>
                 <td><?=$product['count']?></td>
                 <td>
                     <a href="delete?id=<?=$product['id']?>" class="btn btn-danger btn-sm">Delete</a>
@@ -39,15 +39,13 @@ require_once "partials/_head.php";
             <? endforeach; endif; ?>
             </tbody>
         </table>
-            <? if (isset($_SESSION['user'])) : ?>
-        <div class="col-md-8">
-            <a href="buy" class="btn btn-lg btn-primary">Buy</a>
-        </div>
-            <? else : ?>
-        <div class="col-md-8">
-            <a href="form" class="btn btn-lg btn-primary">Login</a>
-        </div>
+        <div class="col-sm-12">
+            <a href="buy" class="btn btn-lg btn-success" style="margin-top: 20px">Buy</a>
+            <a href="/" class="btn btn-lg btn-primary" style="margin-top: 20px">Go back</a>
+            <? if (isset($_SESSION['total_price'])) : ?>
+            <h3 class="col-md-offset-9">Total price: <?=$_SESSION['total_price']?>$</h3>
             <? endif; ?>
+        </div>
     </div>
 </div>
 

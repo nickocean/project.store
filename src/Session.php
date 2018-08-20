@@ -11,6 +11,10 @@ class Session
         if (self::$isStarted == false) {
             session_start();
             self::$isStarted = true;
+
+            if (!isset($_SESSION['csrf_token'])) {
+            	self::set('csrf_token', base64_encode(openssl_random_pseudo_bytes(32)));
+            }
         }
     }
 

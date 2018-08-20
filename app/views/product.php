@@ -18,10 +18,13 @@
 
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="home"
-                             style="margin-top: 20px"><?= $this->params['content'][0]['description'] ?></div>
-                        <p><a href="basket?id=<?= $this->params['content'][0]['id'] ?>" class="btn btn-primary" role="button" style="margin-top: 20px">Add to Basket</a>
-                            <a href="/" class="btn btn-default" role="button" style="margin-top: 20px">Go back</a></p>
+                        <div role="tabpanel" class="tab-pane active" id="home" style="margin-top: 20px"><?= $this->params['content'][0]['description'] ?></div>
+                            <p>
+	                            <? if (isset($_SESSION['user'])) : ?>
+                                <a href="basket?id=<?= $this->params['content'][0]['id'] ?>" class="btn btn-success" role="button" style="margin-top: 20px">Add to Basket</a>
+                                <? endif; ?>
+                                <a href="/" class="btn btn-primary" role="button" style="margin-top: 20px">Go back</a>
+                            </p>
                         <div role="tabpanel" class="tab-pane" id="messages" style="margin-top: 20px">
 
 							<? foreach ( $this->params['comments'] as $key => $comment ) : ?>
@@ -41,6 +44,7 @@
                                         <form action="comment?id=<?= $this->params['content'][0]['id'] ?>" method="post" class="form-group-lg">
                                             <label for="text"></label>
                                             <textarea class="form-control" rows="5" id="text" name="text" type="text" placeholder="Type you comment here..."></textarea>
+                                            <input type="hidden" name="csrf_token" value="<?=$_SESSION['csrf_token']?>">
                                             <input type="submit" value="Add Comment" class="btn btn-primary btn-lg btn-block" style="margin-top: 10px">
                                         </form>
                                     </div>
