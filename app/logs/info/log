@@ -4,3 +4,5 @@
 [2018-08-20 20:32:13] log.INFO: New order:  [{"id":"23","name":"Johnny","email":"johnny@gmail.com"}] []
 [2018-08-20 20:37:20] log.INFO: New comment: this is the comment [{"id":"23","name":"Johnny","email":"johnny@gmail.com"}] []
 [2018-08-20 21:08:59] log.INFO: Logged in user:  [{"id":"23","name":"Johnny","email":"johnny@gmail.com"}] []
+[2018-08-21 17:09:59] log.INFO: New user:  [{"id":"24","name":"Robert","email":"robert@gmail.com"}] []
+[2018-08-21 17:46:41] log.INFO: New user:  [{"id":"28","name":"George1234","email":"wdscdsvdsv@gmail.com"}] []
