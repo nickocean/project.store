@@ -8,7 +8,6 @@ use Src\Flashes;
 
 class Product extends Model
 {
-    public $id;
 
     public function getProduct($id)
     {
