@@ -13,7 +13,7 @@ require_once "partials/_head.php";
                 <img src="<?= $product['image'] ?>">
                 <div class="caption">
                     <h3><?= $product['name'] ?></h3>
-                    <p><?= substr($product['description'], 0, 400) . '...' ?></p>
+                    <p><?= substr($product['description'], 0, 350) . '...' ?></p>
                     <p>
                         <? if (isset($_SESSION['user'])) : ?>
                         <a href="basket?id=<?=$product['id']?>" class="btn btn-success" role="button">Add to Basket</a>
@@ -24,8 +24,21 @@ require_once "partials/_head.php";
             </div>
         </div>
     <? endforeach; ?>
+    <div class="col-md-10 col-md-offset-5">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-lg">
+
+                <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+                <li class="page-item"><a class="page-link" href="?page=2">2</a></li>
+                <li class="page-item"><a class="page-link" href="?page=3">3</a></li>
+                <li class="page-item"><a class="page-link" href="?page=4">4</a></li>
+
+            </ul>
+        </nav>
+    </div>
 </div>
 
 
 <? require_once "partials/_footer.php" ?>
+
 

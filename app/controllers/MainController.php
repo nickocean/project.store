@@ -10,10 +10,10 @@ class MainController extends Controller
 {
     public function index()
     {
-        $result = $this->model->getData();
+        $result = $this->model->getData($_GET['page']);
         $vars = [
             'content' => $result
         ];
-        $this->view->render('main', $vars);
+	    $this->view->render('main', $vars);
     }
 }
