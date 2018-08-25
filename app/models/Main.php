@@ -29,6 +29,10 @@ class Main extends Model
 			    $min = 9;
 			    $max = 13;
 			    break;
+		    case 5:
+			    $min = 12;
+			    $max = 16;
+			    break;
 	    }
 
 	    $result = $this->db->query("SELECT * FROM products WHERE id > '{$min}' AND id < '{$max}';");

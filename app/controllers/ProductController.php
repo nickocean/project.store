@@ -31,6 +31,22 @@ class ProductController extends Controller
     	$this->model->editProduct($id);
     }
 
+    public function addView()
+    {
+	    $this->view->render('add');
+    }
+
+    public function add()
+    {
+    	$this->model->addProduct();
+    }
+
+    public function delete()
+    {
+	    $id = $_GET['id'];
+	    $this->model->deleteProduct($id);
+    }
+
     public function addComment()
     {
     	$this->model->addComment($_GET['id']);
