@@ -17,15 +17,25 @@ return [
 	    'controller' => '\App\\controllers\\ProductController',
 	    'action' => 'editView'
     ],
+    'add' => [
+	    'model' => '\App\\models\\Product',
+	    'controller' => '\App\\controllers\\ProductController',
+	    'action' => 'addView'
+    ],
     'edit_product' => [
 	    'model' => '\App\\models\\Product',
 	    'controller' => '\App\\controllers\\ProductController',
 	    'action' => 'edit'
     ],
-    'delete' => [
+    'delete_product' => [
 	    'model' => '\App\\models\\Product',
 	    'controller' => '\App\\controllers\\ProductController',
 	    'action' => 'delete'
+    ],
+    'add_product' => [
+	    'model' => '\App\\models\\Product',
+	    'controller' => '\App\\controllers\\ProductController',
+	    'action' => 'add'
     ],
 	'comment' => [
 		'model' => '\App\\models\\Product',

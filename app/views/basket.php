@@ -1,9 +1,4 @@
-<?php
-
-ini_set('display_errors', 1);
-require_once "partials/_head.php";
-
-?>
+<?php require_once "partials/_head.php"; ?>
 
 
 <body>

@@ -37,7 +37,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <? if ($_SESSION['user'][0]['name'] === 'Admin') : ?>
-                    <li><a href="#">Add New Product</a></li>
+                    <li><a href="add">Add Product</a></li>
                 <? endif;
                 if (isset($_SESSION['user'])) : ?>
                     <li><a href="basket">Basket</a></li>

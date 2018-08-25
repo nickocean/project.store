@@ -1,8 +1,4 @@
-<?php
-
-require_once "partials/_head.php";
-
-?>
+<?php require_once "partials/_head.php"; ?>
 
 <div class="row">
     <div class="col-md-8 col-md-offset-2" >

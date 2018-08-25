@@ -1,8 +1,4 @@
-<?php
-
-require_once "partials/_head.php";
-
-?>
+<?php require_once "partials/_head.php"; ?>
 
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2" >
@@ -35,7 +31,7 @@ require_once "partials/_head.php";
 
 				<input type="submit" value="Edit" class="btn btn-primary btn-lg btn-block">
 			</form>
-			<a class="btn btn-danger btn-lg btn-block" href="delete?id=<?= $this->params['product'][0]['id'] ?>" style="margin-top: 5px">Delete</a>
+			<a class="btn btn-danger btn-lg btn-block" href="delete_product?id=<?= $this->params['product'][0]['id'] ?>" style="margin-top: 5px">Delete</a>
 		</div>
 	</div>
 
