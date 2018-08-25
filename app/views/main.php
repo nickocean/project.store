@@ -19,6 +19,9 @@ require_once "partials/_head.php";
                         <a href="basket?id=<?=$product['id']?>" class="btn btn-success" role="button">Add to Basket</a>
                         <? endif; ?>
                         <a href="product?id=<?= $product['id'] ?>" class="btn btn-primary" role="button">Read More</a>
+                        <? if ($_SESSION['user'][0]['name'] === 'Admin') : ?>
+                        <a href="edit?id=<?= $product['id'] ?>" class="btn btn-warning" role="button">Edit</a>
+                        <? endif; ?>
                     </p>
                 </div>
             </div>

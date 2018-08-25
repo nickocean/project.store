@@ -16,9 +16,7 @@ class Registration extends Model
 		$pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
 		$nameExist = $this->db->row("SELECT name FROM users WHERE name = '{$_POST['name']}'");
 		$emailExist = $this->db->row("SELECT email FROM users WHERE email = '{$_POST['email']}'");
-
 		if (isset($_POST['csrf_token']) && $_POST['csrf_token'] === $_SESSION['csrf_token'] && !isset($nameExist[0]) && !isset($emailExist[0])) {
-
 			if ($_POST['password'] == $_POST['confirm'] && preg_match($username, trim($_POST['name'])) && preg_match($email, trim($_POST['email']))) {
 				$this->db->query("INSERT INTO users (name, email, password) VALUES ('{$_POST['name']}', '{$_POST['email']}', '{$pass}')");
 				$stmt = $this->db->row("SELECT id, name, email FROM users WHERE name = '{$_POST['name']}'");
@@ -30,11 +28,9 @@ class Registration extends Model
 			} elseif ($_POST['password'] != $_POST['confirm']) {
 				Flashes::flash('danger', 'Passwords do not match!');
 			}
-		}
-		if (isset($emailExist[0])) {
+		} if (isset($emailExist[0])) {
 			Flashes::flash('danger', 'This email already exists!');
-		}
-		if (isset($nameExist[0])) {
+		} if (isset($nameExist[0])) {
 			Flashes::flash('danger', 'This name already exists!');
 		}
 	}

@@ -22,6 +22,9 @@
                             <p>
 	                            <? if (isset($_SESSION['user'])) : ?>
                                 <a href="basket?id=<?= $this->params['content'][0]['id'] ?>" class="btn btn-success" role="button" style="margin-top: 20px">Add to Basket</a>
+                                <? endif;
+                                if ($_SESSION['user'][0]['name'] === 'Admin') : ?>
+                                <a href="edit?id=<?= $this->params['content'][0]['id'] ?>" class="btn btn-warning" role="button" style="margin-top: 20px">Edit</a>
                                 <? endif; ?>
                                 <a href="/" class="btn btn-primary" role="button" style="margin-top: 20px">Go back</a>
                             </p>
@@ -35,6 +38,11 @@
                                     <div class="col-sm-4 col-md-6 col-md-offset-0">
 										<?= $comment['text'] ?>
                                     </div>
+                                    <? if ($_SESSION['user'][0]['name'] === 'Admin') : ?>
+                                    <div class="col-sm-4 col-md-offset-2">
+                                        <a href="delete_comment?id=<?=$comment['id']?>" class="btn btn-sm btn-danger" role="button">Delete</a>
+                                    </div>
+                                    <? endif; ?>
                                 </div>
                                 <hr>
 							<? endforeach;
