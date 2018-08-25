@@ -31,7 +31,7 @@ return [
 		'model' => '\App\\models\\Product',
 		'controller' => '\App\\controllers\\ProductController',
 		'action' => 'addComment'
-	],
+	  ],
     'delete_comment' => [
 	    'model' => '\App\\models\\Product',
 	    'controller' => '\App\\controllers\\ProductController',
@@ -71,7 +71,7 @@ return [
 		'model' => '\App\\models\\Registration',
 		'controller' => '\App\\controllers\\RegistrationController',
 		'action' => 'form'
-	],
+	  ],
 	'registration' => [
 		'model' => '\App\\models\\Registration',
 		'controller' => '\App\\controllers\\RegistrationController',
