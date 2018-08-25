@@ -12,11 +12,31 @@ return [
         'controller' => '\App\\controllers\\ProductController',
         'action' => 'product'
     ],
+    'edit' => [
+	    'model' => '\App\\models\\Product',
+	    'controller' => '\App\\controllers\\ProductController',
+	    'action' => 'editView'
+    ],
+    'edit_product' => [
+	    'model' => '\App\\models\\Product',
+	    'controller' => '\App\\controllers\\ProductController',
+	    'action' => 'edit'
+    ],
+    'delete' => [
+	    'model' => '\App\\models\\Product',
+	    'controller' => '\App\\controllers\\ProductController',
+	    'action' => 'delete'
+    ],
 	'comment' => [
 		'model' => '\App\\models\\Product',
 		'controller' => '\App\\controllers\\ProductController',
-		'action' => 'comment'
+		'action' => 'addComment'
 	],
+    'delete_comment' => [
+	    'model' => '\App\\models\\Product',
+	    'controller' => '\App\\controllers\\ProductController',
+	    'action' => 'deleteComment'
+    ],
     'form' => [
         'model' => '\App\\models\\Login',
         'controller' => '\App\\controllers\\LoginController',
