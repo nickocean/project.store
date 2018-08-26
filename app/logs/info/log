@@ -22,3 +22,6 @@
 [2018-08-23 21:58:02] log.INFO: Logged in user:  [{"id":"29","name":"Admin","email":"admin@gmail.com"}] []
 [2018-08-25 13:16:46] log.INFO: Logged in user:  [{"id":"29","name":"Admin","email":"admin@gmail.com"}] []
 [2018-08-25 13:45:01] log.INFO: New comment: sfdsgvd [{"id":"29","name":"Admin","email":"admin@gmail.com"}] []
+[2018-08-26 11:38:40] log.INFO: Logged in user:  [{"id":"29","name":"Admin","email":"admin@gmail.com"}] []
+[2018-08-26 11:55:37] log.INFO: New comment: ewgergrgfewfvewvw [{"id":"29","name":"Admin","email":"admin@gmail.com"}] []
+[2018-08-26 11:55:46] log.INFO: New comment: efdsgvdsvrvse [{"id":"29","name":"Admin","email":"admin@gmail.com"}] []
