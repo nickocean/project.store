@@ -22,7 +22,6 @@ class Db
     public function query($sql, $params = [])
     {
         $stmt = $this->db->prepare($sql);
-
         if (!empty($params)) {
             foreach ($params as $key => $value) {
                 $stmt->bindValue(':' . $key, $value);

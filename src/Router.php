@@ -17,11 +17,13 @@ class Router
             $this->add($key, $value);
         }
     }
+
     public function add($route, $params)
     {
         $route = '#^' . $route . '$#';
         $this->routes[$route] = $params;
     }
+
     public function match()
     {
         $url = explode('?', $_SERVER['REQUEST_URI']);
@@ -34,13 +36,14 @@ class Router
         }
         return false;
     }
+
     public function run()
     {
         if ($this->match()) {
-                    $controllerName = $this->params['controller'];
-                    $action = $this->params['action'];
-                    $controller = new $controllerName($this->params);
-                    $controller->$action();
+        	$controllerName = $this->params['controller'];
+        	$action = $this->params['action'];
+        	$controller = new $controllerName($this->params);
+        	$controller->$action();
         } else {
             echo "Cannot find route";
         }

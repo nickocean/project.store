@@ -4,7 +4,7 @@ namespace Src;
 
 class Model
 {
-    public $db;
+    protected $db;
 
     public function __construct()
     {
