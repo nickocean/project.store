@@ -27,8 +27,7 @@ class Session
     {
         if (isset($_SESSION[$key])) {
             return $_SESSION[$key];
-        }
-        return false;
+        } return false;
     }
 
     public static function display()

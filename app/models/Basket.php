@@ -12,7 +12,8 @@ class Basket extends Model
 
     public function add($id):void
     {
-        $products = $this->db->row("SELECT id, name, description, price FROM products WHERE id = $id");
+    	$select = 'id, name, description, price';
+        $products = $this->db->select('products', 'id', $id, $select);
         if (isset($products)) {
             $products[0]['count'] = 1;
             $products[0]['price_one'] = $products[0]['price'];
@@ -35,10 +36,14 @@ class Basket extends Model
     public function addOrder()
     {
     	if ($_SESSION['total_price'] > 0) {
-		    $this->db->query("INSERT INTO orders (price, user_id) VALUES ({$_SESSION['total_price']},{$_SESSION['user'][0]['id']})");
-		    $orderId = $this->db->row("SELECT id FROM orders ORDER BY id DESC LIMIT 1");
+    		$cols = 'price, user_id';
+    		$values = "{$_SESSION['total_price']},{$_SESSION['user'][0]['id']}";
+		    $this->db->insert('orders', $cols, $values);
+		    $orderId = $this->db->selectOrder('orders', 'id', 'id');
 		    foreach ($_SESSION['products'] as $products => $product) {
-			    $this->db->query("INSERT INTO products_orders (product_count, product_id, order_id) VALUES ({$product['count']},{$product['id']}, {$orderId[0]['id']})");
+		    	$cols = 'product_count, product_id, order_id';
+		    	$values = "{$product['count']},{$product['id']}, {$orderId[0]['id']}";
+			    $this->db->insert('products_orders', $cols, $values);
 		    }
 		    Log::info('New order: ', $_SESSION['user']);
 		    unset($_SESSION['products']);

@@ -30,7 +30,7 @@ class Main extends Model
 			    break;
 	    }
 
-	    $result = $this->db->query("SELECT * FROM products LIMIT {$min}, {$max}");
+	    $result = $this->db->selectLimit('products', $min, $max);
 	    return $result;
     }
 }

@@ -14,7 +14,6 @@ class View
         $this->path = $route['controller'] . '/' . $route['action'];
     }
 
-
     public function render($view, $vars = [])
     {
         $this->params = $vars;
@@ -24,6 +23,7 @@ class View
             echo 'Cannot find view ' . $this->path;
         }
     }
+
     public function redirect($url)
     {
         header('Location: ' . $url);

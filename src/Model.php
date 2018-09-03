@@ -4,12 +4,12 @@ namespace Src;
 
 class Model
 {
-    public $db;
+    protected $db;
 
-    public function __construct()
+    public function __construct($className)
     {
     	if (!isset($this->db)) {
-		    $this->db = new Db;
+		    $this->db = new $className;
 	    } else {
     		return null;
 	    }
