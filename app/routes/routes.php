@@ -50,7 +50,7 @@ return [
 		'action' => 'addComment',
 		'db' => '\Src\\Db'
 	],
-    'delete_comment' => [
+  'delete_comment' => [
 	    'model' => '\App\\models\\Product',
 	    'controller' => '\App\\controllers\\ProductController',
 	    'action' => 'deleteComment',
