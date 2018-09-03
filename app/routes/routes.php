@@ -5,86 +5,103 @@ return [
     '' => [
         'model' => '\App\\models\\Main',
         'controller' => '\App\\controllers\\MainController',
-        'action' => 'index'
+        'action' => 'index',
+	    'db' => '\Src\\Db'
     ],
     'product' => [
         'model' => '\App\\models\\Product',
         'controller' => '\App\\controllers\\ProductController',
-        'action' => 'product'
+        'action' => 'product',
+	    'db' => '\Src\\Db'
     ],
     'edit' => [
 	    'model' => '\App\\models\\Product',
 	    'controller' => '\App\\controllers\\ProductController',
-	    'action' => 'editView'
+	    'action' => 'editView',
+	    'db' => '\Src\\Db'
     ],
     'add' => [
 	    'model' => '\App\\models\\Product',
 	    'controller' => '\App\\controllers\\ProductController',
-	    'action' => 'addView'
+	    'action' => 'addView',
+	    'db' => '\Src\\Db'
     ],
     'edit_product' => [
 	    'model' => '\App\\models\\Product',
 	    'controller' => '\App\\controllers\\ProductController',
-	    'action' => 'edit'
+	    'action' => 'edit',
+	    'db' => '\Src\\Db'
     ],
     'delete_product' => [
 	    'model' => '\App\\models\\Product',
 	    'controller' => '\App\\controllers\\ProductController',
-	    'action' => 'delete'
+	    'action' => 'delete',
+	    'db' => '\Src\\Db'
     ],
     'add_product' => [
 	    'model' => '\App\\models\\Product',
 	    'controller' => '\App\\controllers\\ProductController',
-	    'action' => 'add'
+	    'action' => 'add',
+	    'db' => '\Src\\Db'
     ],
 	'comment' => [
 		'model' => '\App\\models\\Product',
 		'controller' => '\App\\controllers\\ProductController',
-		'action' => 'addComment'
+		'action' => 'addComment',
+		'db' => '\Src\\Db'
 	],
     'delete_comment' => [
 	    'model' => '\App\\models\\Product',
 	    'controller' => '\App\\controllers\\ProductController',
-	    'action' => 'deleteComment'
+	    'action' => 'deleteComment',
+	    'db' => '\Src\\Db'
     ],
     'form' => [
         'model' => '\App\\models\\Login',
         'controller' => '\App\\controllers\\LoginController',
-        'action' => 'form'
+        'action' => 'form',
+        'db' => '\Src\\Db'
     ],
     'login' => [
         'model' => '\App\\models\\Login',
         'controller' => '\App\\controllers\\LoginController',
-        'action' => 'login'
+        'action' => 'login',
+        'db' => '\Src\\Db'
     ],
     'logout' => [
         'model' => '\App\\models\\Login',
         'controller' => '\App\\controllers\\LoginController',
-        'action' => 'logout'
+        'action' => 'logout',
+        'db' => '\Src\\Db'
     ],
     'basket' => [
         'model' => '\App\\models\\Basket',
         'controller' => '\App\\controllers\\BasketController',
-        'action' => 'basket'
+        'action' => 'basket',
+        'db' => '\Src\\Db'
     ],
     'delete' => [
         'model' => '\App\\models\\Basket',
         'controller' => '\App\\controllers\\BasketController',
-        'action' => 'delete'
+        'action' => 'delete',
+        'db' => '\Src\\Db'
     ],
     'buy' => [
         'model' => '\App\\models\\Basket',
         'controller' => '\App\\controllers\\BasketController',
-        'action' => 'buy'
+        'action' => 'buy',
+        'db' => '\Src\\Db'
     ],
 	'register' => [
 		'model' => '\App\\models\\Registration',
 		'controller' => '\App\\controllers\\RegistrationController',
-		'action' => 'form'
+		'action' => 'form',
+		'db' => '\Src\\Db'
 	],
 	'registration' => [
 		'model' => '\App\\models\\Registration',
 		'controller' => '\App\\controllers\\RegistrationController',
-		'action' => 'register'
+		'action' => 'register',
+		'db' => '\Src\\Db'
 	]
 ];

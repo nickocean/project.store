@@ -20,7 +20,7 @@ class Controller
     {
         $path = ucfirst($name);
         if (class_exists($path)) {
-            $model = new $path;
+            $model = new $path($this->route['db']);
             return $model;
         }
     }
