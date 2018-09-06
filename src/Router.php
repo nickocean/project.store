@@ -2,12 +2,11 @@
 
 namespace Src;
 
-use Src\Session\Session;
 
 class Router
 {
-    public $routes = [];
-    public $params = [];
+    private $routes = [];
+    private $params = [];
 
     public function __construct()
     {
@@ -18,13 +17,13 @@ class Router
         }
     }
 
-    public function add($route, $params)
+    private function add($route, $params)
     {
         $route = '#^' . $route . '$#';
         $this->routes[$route] = $params;
     }
 
-    public function match()
+    private function match()
     {
         $url = explode('?', $_SERVER['REQUEST_URI']);
         $url = trim($url[0], '/');

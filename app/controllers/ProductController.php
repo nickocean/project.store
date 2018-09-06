@@ -6,29 +6,34 @@ use Src\Controller;
 
 class ProductController extends Controller
 {
+	private $id;
+	private $content;
+	private $comments;
+	private $data = [];
+
     public function product()
     {
-    	$id = $_GET['id'];
-        $content = $this->model->getProduct($id);
-        $comments = $this->model->getComments($id);
-        $vars = [
-            'content' => $content,
-            'comments' => $comments
+    	$this->id = $_GET['id'];
+        $this->content = $this->model->getProduct($this->id);
+        $this->comments = $this->model->getComments($this->id);
+        $this->data = [
+            'content' => $this->content,
+            'comments' => $this->comments
         ];
-        $this->view->render('product', $vars);
+        $this->view->render('product', $this->data);
     }
 
     public function editView()
     {
-    	$id = $_GET['id'];
-    	$product['product'] = $this->model->getProduct($id);
-    	$this->view->render('edit', $product);
+    	$this->id = $_GET['id'];
+    	$this->data['product'] = $this->model->getProduct($this->id);
+    	$this->view->render('edit', $this->data);
     }
 
     public function edit()
     {
-    	$id = $_GET['id'];
-    	$this->model->editProduct($id);
+    	$this->id = $_GET['id'];
+    	$this->model->editProduct($this->id);
     }
 
     public function addView()
@@ -43,18 +48,20 @@ class ProductController extends Controller
 
     public function delete()
     {
-	    $id = $_GET['id'];
-	    $this->model->deleteProduct($id);
+	    $this->id = $_GET['id'];
+	    $this->model->deleteProduct($this->id);
     }
 
     public function addComment()
     {
-    	$this->model->addComment($_GET['id']);
+    	$this->id = $_GET['id'];
+    	$this->model->addComment($this->id);
     	$this->product();
     }
 
 	public function deleteComment()
 	{
-		$this->model->deleteComment($_GET['id']);
+		$this->id = $_GET['id'];
+		$this->model->deleteComment($this->id);
 	}
 }

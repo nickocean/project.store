@@ -6,7 +6,7 @@ use PDO;
 
 class Db
 {
-    protected $db;
+    private $db;
 
     public function __construct()
     {
@@ -31,16 +31,10 @@ class Db
         return $stmt;
     }
 
-    public function row($sql, $params = [])
+    private function row($sql, $params = [])
     {
         $result = $this->query($sql, $params);
         return $result->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function column($sql, $params = [])
-    {
-        $result = $this->query($sql, $params);
-        return $result->fetchColumn();
     }
 
 	public function select($table, $col, $colValue, $select = '*')

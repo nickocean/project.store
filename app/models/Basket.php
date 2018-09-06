@@ -8,27 +8,32 @@ use Src\Flashes;
 
 class Basket extends Model
 {
-    public $id;
+    private $id;
+    private $products;
+    private $values;
+    private $orderId;
+	private $cols = 'price, user_id';
+    private $select = 'id, name, description, price';
 
     public function add($id):void
     {
-    	$select = 'id, name, description, price';
-        $products = $this->db->select('products', 'id', $id, $select);
-        if (isset($products)) {
-            $products[0]['count'] = 1;
-            $products[0]['price_one'] = $products[0]['price'];
-            $_SESSION['total_price'] += $products[0]['price'];
+    	$this->id = $id;
+        $this->products = $this->db->select('products', 'id', $this->id, $this->select);
+        if (isset($this->products)) {
+            $this->products[0]['count'] = 1;
+            $this->products[0]['price_one'] = $this->products[0]['price'];
+            $_SESSION['total_price'] += $this->products[0]['price'];
             if (isset($_SESSION['products'])) {
                 foreach ($_SESSION['products'] as $key => $product) {
-                    if ($products[0]['id'] == $product['id']) {
+                    if ($this->products[0]['id'] == $product['id']) {
                         $_SESSION['products'][$key]['count']++;
                         $_SESSION['products'][$key]['price'] += $_SESSION['products'][$key]['price_one'];
                         return;
                     }
                 }
-                $_SESSION['products'][] = $products[0];
+                $_SESSION['products'][] = $this->products[0];
             } else {
-                $_SESSION['products'][] = $products[0];
+                $_SESSION['products'][] = $this->products[0];
             } return;
         }
     }
@@ -36,14 +41,13 @@ class Basket extends Model
     public function addOrder()
     {
     	if ($_SESSION['total_price'] > 0) {
-    		$cols = 'price, user_id';
-    		$values = "{$_SESSION['total_price']},{$_SESSION['user'][0]['id']}";
-		    $this->db->insert('orders', $cols, $values);
-		    $orderId = $this->db->selectOrder('orders', 'id', 'id');
+    		$this->values = "{$_SESSION['total_price']},{$_SESSION['user'][0]['id']}";
+		    $this->db->insert('orders', $this->cols, $this->values);
+		    $this->orderId = $this->db->selectOrder('orders', 'id', 'id');
 		    foreach ($_SESSION['products'] as $products => $product) {
-		    	$cols = 'product_count, product_id, order_id';
-		    	$values = "{$product['count']},{$product['id']}, {$orderId[0]['id']}";
-			    $this->db->insert('products_orders', $cols, $values);
+		    	$this->cols = 'product_count, product_id, order_id';
+		    	$this->values = "{$product['count']},{$product['id']}, {$this->orderId[0]['id']}";
+			    $this->db->insert('products_orders', $this->cols, $this->values);
 		    }
 		    Log::info('New order: ', $_SESSION['user']);
 		    unset($_SESSION['products']);
@@ -52,13 +56,13 @@ class Basket extends Model
 	    } else {
     		Flashes::flash('danger', 'You have no products in the basket!');
 	    }
-
     }
 
     public function del($id)
     {
+	    $this->id = $id;
         foreach ($_SESSION['products'] as $products => $product) {
-            if ($id == $product['id']) {
+            if ($this->id == $product['id']) {
                 if ($product['count'] > 1) {
                     $_SESSION['products'][$products]['count']--;
                     $_SESSION['products'][$products]['price'] -= $_SESSION['products'][$products]['price_one'];
