@@ -8,39 +8,54 @@ use Src\Flashes;
 
 class Product extends Model
 {
+	private $id;
+	private $name;
+	private $description;
+	private $price;
+	private $image;
+	private $product;
+	private $comments;
+	private $cols;
+	private $values;
+	private $userId;
+	private $commentText;
 
     public function getProduct($id)
     {
-        $result = $this->db->select('products', 'id', $id);
-        return $result;
+    	$this->id = $id;
+        $this->product = $this->db->select('products', 'id', $this->id);
+        return $this->product;
     }
 
     public function editProduct($id)
     {
-    	$name = $_POST['name'];
-    	$description = $_POST['description'];
-    	$price = $_POST['price'];
-    	$image = $_POST['image'];
+    	$this->id = $id;
+    	$this->name = $_POST['name'];
+    	$this->description = $_POST['description'];
+    	$this->price = $_POST['price'];
+    	$this->image = $_POST['image'];
+
 	    if (isset($_POST['csrf_token']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
 	    	/*$cols = 'name,description,price,image';
 	    	$values = " '{$name}'; '{$description}'; {$price}; '{$image}'";
 	    	$this->db->update('products', $cols, $values, 'id', $id);*/
-	    	$this->db->query("UPDATE products SET name = '{$name}', description = '{$description}', price = {$price}, image = '{$image}' WHERE id = {$id}");
-	    	Log::notice("Updated product: (id = $id)", $_SESSION['user']);
+	    	$this->db->query("UPDATE products SET name = '{$this->name}', description = '{$this->description}', price = {$this->price}, image = '{$this->image}' WHERE id = {$this->id}");
+	    	Log::notice("Updated product: (id = $this->id)", $_SESSION['user']);
 	    	header('Location: ../');
 	    }
     }
 
     public function addProduct()
     {
-	    $name = $_POST['name'];
-	    $description = $_POST['description'];
-	    $price = $_POST['price'];
-	    $image = $_POST['image'];
+	    $this->name = $_POST['name'];
+	    $this->description = $_POST['description'];
+	    $this->price = $_POST['price'];
+	    $this->image = $_POST['image'];
+
 	    if (isset($_POST['csrf_token']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
-	    	$cols = 'name, description, price, image';
-	    	$values = "'{$name}', '{$description}', '{$price}', '{$image}'";
-			$this->db->insert('products', $cols, $values);
+	    	$this->cols = 'name, description, price, image';
+	    	$this->values = "'{$this->name}', '{$this->description}', '{$this->price}', '{$this->image}'";
+			$this->db->insert('products', $this->cols, $this->values);
 			Log::notice('Product added: ', $_SESSION['user']);
 			header('Location: ../');
 	    }
@@ -48,27 +63,30 @@ class Product extends Model
 
     public function deleteProduct($id)
     {
-    	$this->db->delete('products', 'id', $id);
-    	Log::notice("Product deleted (id = $id)", $_SESSION['user']);
+    	$this->id = $id;
+    	$this->db->delete('products', 'id', $this->id);
+    	Log::notice("Product deleted (id = $this->id)", $_SESSION['user']);
     	header('Location: ../');
     }
 
     public function getComments($id)
     {
-        $comments = $this->db->select('comments', 'product_id', $id);
-        foreach ($comments as $key => $comment) {
-        	$comments[$key]['user_name'] = $this->db->select('users', 'id', $comment['user_id'], 'name');
-        } return $comments;
+    	$this->id = $id;
+        $this->comments = $this->db->select('comments', 'product_id', $this->id);
+        foreach ($this->comments as $key => $comment) {
+        	$this->comments[$key]['user_name'] = $this->db->select('users', 'id', $comment['user_id'], 'name');
+        } return $this->comments;
     }
 
     public function addComment($id)
     {
-    	$userId = $_SESSION['user'][0]['id'];
-    	$commentText = strip_tags($_POST['text']);
+    	$this->id = $id;
+    	$this->userId = $_SESSION['user'][0]['id'];
+    	$this->commentText = strip_tags($_POST['text']);
     	if (isset($_POST['csrf_token']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
-    		$cols = 'text, user_id, product_id';
-    		$values = "'{$commentText}', {$userId}, {$id}";
-		    $this->db->insert('comments', $cols, $values);
+    		$this->cols = 'text, user_id, product_id';
+    		$this->values = "'{$this->commentText}', {$this->userId}, {$this->id}";
+		    $this->db->insert('comments', $this->cols, $this->values);
 		    Flashes::flash('success', 'Your comment was successfully added!');
 		    Log::info("New comment: {$_POST['text']}", $_SESSION['user']);
 	    }
@@ -76,8 +94,9 @@ class Product extends Model
 
 	public function deleteComment($id)
 	{
-		$this->db->delete('comments', 'id', $id);
-		Log::notice("Deleted comment with id = $id", $_SESSION['user']);
+		$this->id = $id;
+		$this->db->delete('comments', 'id', $this->id);
+		Log::notice("Deleted comment with id = $this->id", $_SESSION['user']);
 		header('Location: ../');
 	}
 

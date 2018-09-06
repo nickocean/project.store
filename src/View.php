@@ -4,9 +4,9 @@ namespace Src;
 
 class View
 {
-    public $route;
-    public $path;
-    public $params;
+    private $route;
+    private $path;
+    private $params;
 
     public function __construct($route)
     {

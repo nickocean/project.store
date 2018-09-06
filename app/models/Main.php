@@ -6,31 +6,34 @@ use Src\Model;
 
 class Main extends Model
 {
+	private $page;
+	private $min = 0;
+	private $max = 3;
+	private $products = [];
 
     public function getData($page)
     {
-    	$min = 0;
-    	$max = 3;
+    	$this->page = $page;
 
-    	switch ($page) {
+    	switch ($this->page) {
 		    case 1:
-		    	$min = 0;
+		    	$this->min = 0;
 		    	break;
 		    case 2:
-		    	$min = 3;
+			    $this->min = 3;
 		    	break;
 		    case 3:
-			    $min = 6;
+			    $this->min = 6;
 			    break;
 		    case 4:
-			    $min = 9;
+			    $this->min = 9;
 			    break;
 		    case 5:
-			    $min = 12;
+			    $this->min = 12;
 			    break;
 	    }
 
-	    $result = $this->db->selectLimit('products', $min, $max);
-	    return $result;
+	    $this->products = $this->db->selectLimit('products', $this->min, $this->max);
+	    return $this->products;
     }
 }
